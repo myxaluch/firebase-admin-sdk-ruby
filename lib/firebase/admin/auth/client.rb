@@ -101,6 +101,18 @@ module Firebase
           verified_claims unless revoked
         end
 
+        # Generates sign in with email link.
+        #
+        # @param [String] email
+        #  The email to sign in with.
+        # @param [Hash] action_code_settings
+        # The action code settings to apply to link generation
+        #
+        # @return [String] The generated sign in link.
+        def generate_sign_in_with_email_link(email, action_code_settings = {})
+          @user_manager.generate_sign_in_with_email_link(email, action_code_settings)
+        end
+
         private
 
         # Checks if an ID token has been revoked.
